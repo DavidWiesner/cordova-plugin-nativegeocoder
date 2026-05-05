@@ -60,7 +60,7 @@ struct NativeGeocoderOptions: Decodable {
                 } else {
                     if let encodedResult = try? JSONEncoder().encode(resultObj),
                         let result = try? JSONSerialization.jsonObject(with: encodedResult, options: .allowFragments) as? [Dictionary<String,Any>] {
-                        pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: result)
+                        pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: result!)
                     } else {
                         pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "Invalid JSON result")
                     }
@@ -174,7 +174,7 @@ struct NativeGeocoderOptions: Decodable {
                 } else {
                     if let encodedResult = try? JSONEncoder().encode(resultObj),
                         let result = try? JSONSerialization.jsonObject(with: encodedResult, options: .allowFragments) as? [Dictionary<String,Any>] {
-                        pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: result)
+                        pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: result!)
                     } else {
                         pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "Invalid JSON result")
                     }
